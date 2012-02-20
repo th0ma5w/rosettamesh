@@ -1,0 +1,25 @@
+(ns rosettamesh.hemesh
+  (:use rosettamesh.util)
+)
+
+(import  '(wblut.geom.core WB_Point3d WB_ExplicitTriangle)
+'(wblut.hemesh.creators HEC_FromTriangles))
+
+(defn fromHemesh [hemesh]
+  (last (doall (list
+    (.triangulate hemesh) 
+    (map (fn [a] 
+      (reverse (map (fn [b] (callList b x y z)) 
+        (.getFaceVertices a) )) )
+          (.getFacesAsArray hemesh))))))
+
+(defn toHemesh [faceList]
+  (.create (doto (HEC_FromTriangles.) 
+    (.setTriangles (into-array 
+    (map (fn [[a b c]] (WB_ExplicitTriangle. a b c))
+      (map (fn [face]
+          (map (fn [[x y z]]
+              (WB_Point3d. x y z))
+                face))
+                  faceList)))))))
+
