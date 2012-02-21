@@ -64,7 +64,7 @@ unused intermediary format, and then use that to create the target.
 #### Example
 
     import rosettamesh.*;
-    toxi.toToxi(hemesh.fromHemesh(new HEC_Cone(1,1,20,20))).saveAsSTL("test.stl");
+    toxi.toToxi(hemesh.fromHemesh((new HEC_Cone(1,1,20,20)).create())).saveAsSTL("test.stl");
     
 
 ### Clojure
