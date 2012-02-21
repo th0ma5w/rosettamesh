@@ -1,8 +1,8 @@
 (ns rosettamesh.toxi
   (:gen-class 
     :name rosettamesh.toxi
-    :methods [#^{:static true}[toToxi [Object] Object]
-                     #^{:static true}[fromToxi [Object] Object]])
+    :methods [#^{:static true}[toToxi [Object] toxi.geom.mesh.TriangleMesh]
+                     #^{:static true}[fromToxi [toxi.geom.mesh.TriangleMesh] Object]])
   (:use rosettamesh.util))
 
 (import  '(toxi.geom Vec3D mesh.TriangleMesh))

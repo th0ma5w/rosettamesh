@@ -1,8 +1,8 @@
 (ns rosettamesh.unlekker
   (:gen-class 
     :name rosettamesh.unlekker
-    :methods [ #^{:static true}[toModelBuilder [Object] Object]
-                      #^{:static true}[fromModelBuilder [Object] Object]])
+    :methods [ #^{:static true}[toModelBuilder [Object] unlekker.modelbuilder.UGeometry]
+                      #^{:static true}[fromModelBuilder [unlekker.modelbuilder.UGeometry] Object]])
   (:use rosettamesh.util))
 
 (import '(unlekker.modelbuilder UGeometry UVec3)

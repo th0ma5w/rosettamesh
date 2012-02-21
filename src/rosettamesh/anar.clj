@@ -1,8 +1,8 @@
 (ns rosettamesh.anar
   (:gen-class 
     :name rosettamesh.anar
-    :methods [#^{:static true}[toAnar [Object] Object]
-                     #^{:static true}[fromAnar [Object] Object]])
+    :methods [#^{:static true}[toAnar [Object] anar.Obj]
+                     #^{:static true}[fromAnar [anar.Obj] Object]])
   (:use rosettamesh.util))
 
 (import '(anar Pt Pts Face Anar Obj))

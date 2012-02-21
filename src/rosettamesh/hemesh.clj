@@ -1,8 +1,8 @@
 (ns rosettamesh.hemesh
   (:gen-class 
     :name rosettamesh.hemesh
-    :methods [#^{:static true}[toHemesh [Object] Object]
-                     #^{:static true}[fromHemesh [Object] Object]])
+    :methods [#^{:static true}[toHemesh [Object] wblut.hemesh.core.HE_Mesh]
+                     #^{:static true}[fromHemesh [wblut.hemesh.core.HE_Mesh] Object]])
   (:use rosettamesh.util))
 
 (import  '(wblut.geom.core WB_Point3d WB_ExplicitTriangle)
