@@ -1,6 +1,9 @@
 (ns rosettamesh.hemesh
-  (:use rosettamesh.util)
-)
+  (:gen-class 
+    :name rosettamesh.hemesh
+    :methods [#^{:static true}[toHemesh [Object] Object]
+                     #^{:static true}[fromHemesh [Object] Object]])
+  (:use rosettamesh.util))
 
 (import  '(wblut.geom.core WB_Point3d WB_ExplicitTriangle)
 '(wblut.hemesh.creators HEC_FromTriangles))
@@ -22,4 +25,7 @@
               (WB_Point3d. x y z))
                 face))
                   faceList)))))))
+
+(defn -fromHemesh [o] (fromHemesh o))
+(defn -toHemesh [o] (toHemesh o))
 

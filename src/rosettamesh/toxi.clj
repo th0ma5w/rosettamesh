@@ -1,6 +1,9 @@
 (ns rosettamesh.toxi
-  (:use rosettamesh.util)
-)
+  (:gen-class 
+    :name rosettamesh.toxi
+    :methods [#^{:static true}[toToxi [Object] Object]
+                     #^{:static true}[fromToxi [Object] Object]])
+  (:use rosettamesh.util))
 
 (import  '(toxi.geom Vec3D mesh.TriangleMesh))
 
@@ -18,6 +21,6 @@
       (.addFace mesh (v3d a) (v3d b) (v3d c)))
     faceList))))
 
-
-
+(defn -fromToxi [o] (fromToxi o))
+(defn -toToxi [o] (toToxi o))
 

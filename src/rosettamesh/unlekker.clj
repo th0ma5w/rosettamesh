@@ -1,8 +1,19 @@
 (ns rosettamesh.unlekker
+  (:gen-class 
+    :name rosettamesh.unlekker
+    :methods [ #^{:static true}[toModelBuilder [Object] Object]
+                      #^{:static true}[fromModelBuilder [Object] Object]])
   (:use rosettamesh.util))
 
 (import '(unlekker.modelbuilder UGeometry UVec3)
   '(processing.core PApplet))
+
+(defn fromModelBuilder [ugeom] 
+  (map (fn [face]
+      (map (fn [vertex]
+          (callList vertex x y z))
+        (.v face)))
+  (cleanNil (.face ugeom))))
 
 (defn toModelBuilder [faceList]
   (let [ugeom (UGeometry.)
@@ -14,11 +25,6 @@
     (.endShape ugeom)
     ugeom) )
 
-(defn fromModelBuilder [ugeom] 
-  (map (fn [face]
-      (map (fn [vertex]
-          (callList vertex x y z))
-        (.v face)))
-  (cleanNil (.face ugeom))))
-
+(defn -fromModelBuilder [o] (fromModelBuilder o))
+(defn -toModelBuilder [o] (toModelBuilder o))
 
