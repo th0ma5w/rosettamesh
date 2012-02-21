@@ -59,7 +59,7 @@ unused intermediary format, and then use that to create the target.
     (java.lang.Object) unlekker.fromModelBuilder(unlekker.modelbuilder.UGeometry)
 
     (unwrap.Unwrap) unwrap.toUnwrap(processing.core.PApplet processing.core.PFont Object)
-    (java.lang.Object) toxi.fromToxi(unwrap.Unwrap)
+    (java.lang.Object) unwrap.fromUnwrap(unwrap.Unwrap)
 
 #### Example
 
