@@ -18,7 +18,7 @@ A collection of triangle mesh conversions for Processing, Clojure, and Java.
 - Triangle Strips to Triangles and back
 - Better api namespace
 - Subfeatures of libraries such as triangulation of non-triangle meshes
-- Tests and examples
+- More tests and examples
 
 ## Methods
 
@@ -89,6 +89,7 @@ the lib/ folder will be cleared when executing lein clean.
 ## License
 
 Copyright (C) 2012 Declarie Limited
+
 Distributed under the Eclipse Public License, the same as Clojure.
 
 find me at [twitter.com/th0ma5] (http://twitter.com/th0ma5)
