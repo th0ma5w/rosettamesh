@@ -5,7 +5,7 @@
                      #^{:static true}[fromAnar [anar.Obj] Object]])
   (:use rosettamesh.util))
 
-(import '(anar Pt Pts Face Anar Obj))
+(import '(anar Pts Face Anar Obj))
 
 (defn toAnar [faceList]
   (doto (Obj.) (.addAllFaces (java.util.ArrayList. (map (fn [[a b c]]
