@@ -10,3 +10,5 @@
 *.py
 /temp
 /old
+/rosettamesh
+build_release.sh
