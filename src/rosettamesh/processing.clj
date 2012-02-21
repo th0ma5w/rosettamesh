@@ -20,6 +20,6 @@
           face))
             obj))
 
-(defn -fromProcessing [o] (fromProcessing o))
 (defn -toProcessing [o] (toProcessing o))
+(defn -fromProcessing [o] (fromProcessing o))
 

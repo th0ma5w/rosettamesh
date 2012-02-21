@@ -8,14 +8,6 @@
 (import  '(wblut.geom.core WB_Point3d WB_ExplicitTriangle)
 '(wblut.hemesh.creators HEC_FromTriangles))
 
-(defn fromHemesh [hemesh]
-  (last (doall (list
-    (.triangulate hemesh) 
-    (map (fn [a] 
-      (reverse (map (fn [b] (callList b x y z)) 
-        (.getFaceVertices a) )) )
-          (.getFacesAsArray hemesh))))))
-
 (defn toHemesh [faceList]
   (.create (doto (HEC_FromTriangles.) 
     (.setTriangles (into-array 
@@ -26,6 +18,14 @@
                 face))
                   faceList)))))))
 
-(defn -fromHemesh [o] (fromHemesh o))
+(defn fromHemesh [hemesh]
+  (last (doall (list
+    (.triangulate hemesh) 
+    (map (fn [a] 
+      (reverse (map (fn [b] (callList b x y z)) 
+        (.getFaceVertices a) )) )
+          (.getFacesAsArray hemesh))))))
+
 (defn -toHemesh [o] (toHemesh o))
+(defn -fromHemesh [o] (fromHemesh o))
 

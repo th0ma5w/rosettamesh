@@ -8,13 +8,6 @@
 (import '(unlekker.modelbuilder UGeometry UVec3)
   '(processing.core PApplet))
 
-(defn fromModelBuilder [ugeom] 
-  (map (fn [face]
-      (map (fn [vertex]
-          (callList vertex x y z))
-        (.v face)))
-  (cleanNil (.face ugeom))))
-
 (defn toModelBuilder [faceList]
   (let [ugeom (UGeometry.)
           uv3  (fn [[x y z]] (UVec3. x y z))]
@@ -25,6 +18,14 @@
     (.endShape ugeom)
     ugeom) )
 
-(defn -fromModelBuilder [o] (fromModelBuilder o))
+(defn fromModelBuilder [ugeom] 
+  (map (fn [face]
+      (map (fn [vertex]
+          (callList vertex x y z))
+        (.v face)))
+  (cleanNil (.face ugeom))))
+
+
 (defn -toModelBuilder [o] (toModelBuilder o))
+(defn -fromModelBuilder [o] (fromModelBuilder o))
 

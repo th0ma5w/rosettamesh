@@ -21,6 +21,6 @@
         (.ptList face))) 
           (.faces obj)))
 
-(defn -fromAnar [o] (fromAnar o))
 (defn -toAnar [o] (toAnar o))
+(defn -fromAnar [o] (fromAnar o))
 

@@ -7,13 +7,6 @@
 
 (import  '(toxi.geom Vec3D mesh.TriangleMesh))
 
-(defn fromToxi [toximesh] 
-  (map (fn [face]
-      (map (fn [vertex]
-          (callList vertex x y z))
-        (callList face a b c)))
-  (.faces toximesh)))
-
 (defn toToxi [faceList]
   (let [mesh (TriangleMesh.)
           v3d  (fn [[x y z]] (Vec3D. x y z))]
@@ -21,6 +14,13 @@
       (.addFace mesh (v3d a) (v3d b) (v3d c)))
     faceList))))
 
-(defn -fromToxi [o] (fromToxi o))
+(defn fromToxi [toximesh] 
+  (map (fn [face]
+      (map (fn [vertex]
+          (callList vertex x y z))
+        (callList face a b c)))
+  (.faces toximesh)))
+
 (defn -toToxi [o] (toToxi o))
+(defn -fromToxi [o] (fromToxi o))
 
