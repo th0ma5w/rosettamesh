@@ -48,8 +48,6 @@ unused intermediary format, and then use that to create the target.
 
     (wblut.hemesh.core.HE_Mesh) hemesh.toHemesh(java.lang.Object)
     (java.lang.Object) hemesh.fromHemesh(wblut.hemesh.core.HE_Mesh)
-    (wblut.hemesh.core.HE_Mesh[]) hemesh.toManyHemesh(java.lang.Object)
-    (java.lang.Object) hemesh.fromManyHemesh(wblut.hemesh.core.HE_Mesh[])
 
     (igeo.IMeshGeo) igeo.toIgeo(java.lang.Object)
     (java.lang.Object) igeo.fromIgeo(igeo.IMeshGeo)
