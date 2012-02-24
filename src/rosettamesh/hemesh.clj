@@ -2,21 +2,24 @@
   (:gen-class 
     :name rosettamesh.hemesh
     :methods [#^{:static true}[toHemesh [Object] wblut.hemesh.core.HE_Mesh]
-                     #^{:static true}[fromHemesh [wblut.hemesh.core.HE_Mesh] Object]])
+                     #^{:static true}[fromHemesh [wblut.hemesh.core.HE_Mesh] Object]
+                     #^{:static true}[toManyHemesh [Object] "[Lwblut.hemesh.core.HE_Mesh;"]
+                     #^{:static true}[fromManyHemesh ["[Lwblut.hemesh.core.HE_Mesh;"] Object]
+                    ])
   (:use rosettamesh.util))
 
 (import  '(wblut.geom.core WB_Point3d WB_ExplicitTriangle)
-'(wblut.hemesh.creators HEC_FromTriangles))
+  '(wblut.hemesh.creators HEC_FromTriangles))
 
 (defn toHemesh [faceList]
   (.create (doto (HEC_FromTriangles.) 
     (.setTriangles (into-array 
     (map (fn [[a b c]] (WB_ExplicitTriangle. a b c))
       (map (fn [face]
-          (map (fn [[x y z]]
-              (WB_Point3d. x y z))
-                face))
-                  faceList)))))))
+        (map (fn [[x y z]]
+          (WB_Point3d. x y z))
+            face))
+              faceList)))))))
 
 (defn fromHemesh [hemesh]
   (last (doall (list
@@ -26,6 +29,14 @@
         (.getFaceVertices a) )) )
           (.getFacesAsArray hemesh))))))
 
+(defn toManyHemesh [faceList]
+  (into-array (map #(toHemesh (list %1)) faceList)))
+
+(defn fromManyHemesh [hemeshes]
+  (apply concat (map fromHemesh hemeshes)))
+
 (defn -toHemesh [o] (toHemesh o))
 (defn -fromHemesh [o] (fromHemesh o))
+(defn -toManyHemesh [o] (toManyHemesh o))
+(defn -fromManyHemesh [o] (fromManyHemesh o))
 
