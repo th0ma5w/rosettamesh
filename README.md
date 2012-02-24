@@ -43,6 +43,9 @@ unused intermediary format, and then use that to create the target.
     (anar.Obj) anar.toAnar(java.lang.Object)
     (java.lang.Object) anar.fromAnar(anar.Obj)
 
+    (float[][][]) floatarray.toFloatArray(java.lang.Object)
+    (java.lang.Object) floatarray.fromFloatArray(float[][][])
+
     (wblut.hemesh.core.HE_Mesh) hemesh.toHemesh(java.lang.Object)
     (java.lang.Object) hemesh.fromHemesh(wblut.hemesh.core.HE_Mesh)
 
