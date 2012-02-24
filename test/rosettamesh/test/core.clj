@@ -17,21 +17,23 @@
 (deftest testMeshes
   (let [testMesh (fromHemesh (.create (HEC_Cone. 1 1 20 20)))]
     (let [testResult
-      (fromIgeo
-        (toIgeo
-          (fromProcessing
-            (toProcessing
-              (fromAnar
-                (toAnar
-                  (fromModelBuilder
-                    (toModelBuilder
-                      (fromFloatArray
-                        (toFloatArray
-                          (fromToxi
-                            (toToxi
-                              (fromHemesh
-                                (toHemesh testMesh))))))))))))))] 
-                                  (is testResult "Something broke."))))
+      (fromManyHemesh
+        (toManyHemesh
+          (fromIgeo
+            (toIgeo
+              (fromProcessing
+                (toProcessing
+                  (fromAnar
+                    (toAnar
+                      (fromModelBuilder
+                        (toModelBuilder
+                          (fromFloatArray
+                            (toFloatArray
+                              (fromToxi
+                                (toToxi
+                                  (fromHemesh
+                                    (toHemesh testMesh))))))))))))))))] 
+                                      (is testResult "Something broke."))))
 
 (deftest testUnwrap
   (let [testMesh (fromHemesh (.create (HEC_Cone. 1 1 20 20)))]
