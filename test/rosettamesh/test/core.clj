@@ -1,5 +1,6 @@
 (ns rosettamesh.test.core
   (:use rosettamesh.anar)
+  (:use rosettamesh.floatarray)
   (:use rosettamesh.hemesh)
   (:use rosettamesh.igeo)
   (:use rosettamesh.processing)
@@ -24,11 +25,13 @@
                 (toAnar
                   (fromModelBuilder
                     (toModelBuilder
-                      (fromToxi
-                        (toToxi
-                          (fromHemesh
-                            (toHemesh testMesh))))))))))))] 
-                              (is testResult "Something broke."))))
+                      (fromFloatArray
+                        (toFloatArray
+                          (fromToxi
+                            (toToxi
+                              (fromHemesh
+                                (toHemesh testMesh))))))))))))))] 
+                                  (is testResult "Something broke."))))
 
 (deftest testUnwrap
   (let [testMesh (fromHemesh (.create (HEC_Cone. 1 1 20 20)))]
