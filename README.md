@@ -6,6 +6,7 @@ A collection of triangle mesh conversions for Processing, Clojure, and Java.
 
 - [anar+] (http://anar.ch/)
 - [He_Mesh] (http://hemesh.wblut.com/)
+- [Java 3d] (http://java3d.java.net/)
 - [ModelBuilder] (http://code.google.com/p/codeandform/)
 - [piGeon] (http://igeo.jp/p/)
 - [Processing PVectors in ArrayLists] (http://processing.org)
@@ -31,38 +32,44 @@ unused intermediary format, and then use that to create the target.
 - Only triangle meshes, if possible, and from / to faces
 - Can be chained (see tests)
 - Some may be broken (anar, igeo?)
+- If a mesh is not valid in the target or source, there may be errors
 - Some loss of precision may occur (floats and doubles) 
 - Some libraries also require Processing's core.jar
 - If you don't use the library's functions, Java shouldn't need their jars
 - May be slow with larger meshes
+- No support for color (there are a lot of opinions out there!)
+- Might screw up normals, might not
 
 ## Usage
 
 ### Processing & Java Methods
 
-    (anar.Obj) anar.toAnar(java.lang.Object)
-    (java.lang.Object) anar.fromAnar(anar.Obj)
+    (anar.Obj) anar.toAnar(Object)
+    (Object) anar.fromAnar(anar.Obj)
 
-    (float[][][]) floatarray.toFloatArray(java.lang.Object)
-    (java.lang.Object) floatarray.fromFloatArray(float[][][])
+    (float[][][]) floatarray.toFloatArray(Object)
+    (Object) floatarray.fromFloatArray(float[][][])
 
-    (wblut.hemesh.core.HE_Mesh) hemesh.toHemesh(java.lang.Object)
-    (java.lang.Object) hemesh.fromHemesh(wblut.hemesh.core.HE_Mesh)
+    (wblut.hemesh.core.HE_Mesh) hemesh.toHemesh(Object)
+    (Object) hemesh.fromHemesh(wblut.hemesh.core.HE_Mesh)
 
-    (igeo.IMeshGeo) igeo.toIgeo(java.lang.Object)
-    (java.lang.Object) igeo.fromIgeo(igeo.IMeshGeo)
+    (igeo.IMeshGeo) igeo.toIgeo(Object)
+    (Object) igeo.fromIgeo(igeo.IMeshGeo)
 
-    (java.util.ArrayList) processing.toProcessing(java.lang.Object)
-    (java.lang.Object) processing.fromProcessing(java.util.ArrayList)
+    (javax.media.j3d.IndexedTriangleArray) j3d.toIndexedTriangleArray (Object)
+    (Object) j3d.fromIndexedTriangleArray (javax.media.j3d.IndexedTriangleArray)
 
-    (toxi.geom.mesh.TriangleMesh) toxi.toToxi(java.lang.Object)
-    (java.lang.Object) toxi.fromToxi(toxi.geom.mesh.TriangleMesh)
+    (java.util.ArrayList) processing.toProcessing(Object)
+    (Object) processing.fromProcessing(java.util.ArrayList)
 
-    (unlekker.modelbuilder.UGeometry) unlekker.toModelBuilder(java.lang.Object)
-    (java.lang.Object) unlekker.fromModelBuilder(unlekker.modelbuilder.UGeometry)
+    (toxi.geom.mesh.TriangleMesh) toxi.toToxi(Object)
+    (Object) toxi.fromToxi(toxi.geom.mesh.TriangleMesh)
+
+    (unlekker.modelbuilder.UGeometry) unlekker.toModelBuilder(Object)
+    (Object) unlekker.fromModelBuilder(unlekker.modelbuilder.UGeometry)
 
     (unwrap.Unwrap) unwrap.toUnwrap(processing.core.PApplet processing.core.PFont Object)
-    (java.lang.Object) unwrap.fromUnwrap(unwrap.Unwrap)
+    (Object) unwrap.fromUnwrap(unwrap.Unwrap)
 
 #### Example
 

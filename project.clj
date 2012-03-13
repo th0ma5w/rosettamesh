@@ -1,5 +1,5 @@
-(defproject rosettamesh "1.0.0-SNAPSHOT"
-  :description "FIXME: write description"
-  :repl-port 1665
+(defproject rosettamesh "0.4"
+  :description "triangle mesh translation functions"
   :main rosettamesh.core
+  :disable-implicit-clean true
   :dependencies [[org.clojure/clojure "1.3.0"]])

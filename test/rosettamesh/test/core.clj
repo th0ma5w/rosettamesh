@@ -3,6 +3,7 @@
   (:use rosettamesh.floatarray)
   (:use rosettamesh.hemesh)
   (:use rosettamesh.igeo)
+  (:use rosettamesh.j3d)
   (:use rosettamesh.processing)
   (:use rosettamesh.toxi)
   (:use rosettamesh.unlekker)
@@ -17,23 +18,25 @@
 (deftest testMeshes
   (let [testMesh (fromHemesh (.create (HEC_Cone. 1 1 20 20)))]
     (let [testResult
-      (fromManyHemesh
-        (toManyHemesh
-          (fromIgeo
-            (toIgeo
-              (fromProcessing
-                (toProcessing
-                  (fromAnar
-                    (toAnar
-                      (fromModelBuilder
-                        (toModelBuilder
-                          (fromFloatArray
-                            (toFloatArray
-                              (fromToxi
-                                (toToxi
-                                  (fromHemesh
-                                    (toHemesh testMesh))))))))))))))))] 
-                                      (is testResult "Something broke."))))
+      (fromIndexedTriangleArray 
+        (toIndexedTriangleArray 
+          (fromManyHemesh
+            (toManyHemesh
+              (fromIgeo
+                (toIgeo
+                  (fromProcessing
+                    (toProcessing
+                      (fromAnar
+                        (toAnar
+                          (fromModelBuilder
+                            (toModelBuilder
+                              (fromFloatArray
+                                (toFloatArray
+                                  (fromToxi
+                                    (toToxi
+                                      (fromHemesh
+                                        (toHemesh testMesh))))))))))))))))))] 
+    (is testResult "Something broke."))))
 
 (deftest testUnwrap
   (let [testMesh (fromHemesh (.create (HEC_Cone. 1 1 20 20)))]
