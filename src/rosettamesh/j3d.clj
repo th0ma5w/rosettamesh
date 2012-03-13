@@ -21,18 +21,18 @@
           (fn [i v]
             (.setCoordinate ita i v)
             (.setCoordinateIndex ita i i))
-        (range vertexCount) vertices))
+        (reverse (range vertexCount)) vertices))
       ita)))
 
 
 (defn fromIndexedTriangleArray [obj]
-  (partition 3 (let [vertexCount (.getVertexCount obj)]
+  (map reverse (partition 3 (let [vertexCount (.getVertexCount obj)]
     (map
       (fn [i]
         (let [buf (float-array '(0 0 0))]
           (.getCoordinates obj i buf)
           (seq buf)))
-    (range vertexCount)))))
+    (range vertexCount))))))
 
 
 (defn -toIndexedTriangleArray [o] (toIndexedTriangleArray o))

@@ -1,4 +1,4 @@
-(defproject rosettamesh "0.4"
+(defproject rosettamesh "0.5"
   :description "triangle mesh translation functions"
   :main rosettamesh.core
   :disable-implicit-clean true
