@@ -13,3 +13,5 @@
 /rosettamesh
 build_release.sh
 output.stl
+*.dot
+*.png
