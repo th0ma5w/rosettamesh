@@ -5,6 +5,7 @@ A collection of triangle mesh conversions for Processing, Clojure, and Java.
 ## Supported Libraries
 
 - [anar+] (http://anar.ch/)
+- [FluidFormsLibs] (http://fluidforms.eu/processing/fluid-forms-libs/)
 - [He_Mesh] (http://hemesh.wblut.com/)
 - [Java 3d] (http://java3d.java.net/)
 - [ModelBuilder] (http://code.google.com/p/codeandform/)
@@ -15,8 +16,6 @@ A collection of triangle mesh conversions for Processing, Clojure, and Java.
 
 ## TODO
 
-- [Geomerative] (http://www.ricardmarxer.com/geomerative/)
-- Triangle Strips to Triangles and back
 - Better api namespace
 - Subfeatures of libraries such as triangulation of non-triangle meshes
 - More tests and examples
@@ -46,6 +45,9 @@ unused intermediary format, and then use that to create the target.
 
     (anar.Obj) anar.toAnar(Object)
     (Object) anar.fromAnar(anar.Obj)
+
+    (eu.fluidforms.geom.FSolid) fluidforms.toFSolid(Object)
+    (Object) fluidforms.fromFSolid(eu.fluidforms.geom.FSolid)
 
     (float[][][]) floatarray.toFloatArray(Object)
     (Object) floatarray.fromFloatArray(float[][][])

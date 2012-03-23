@@ -1,6 +1,7 @@
 (ns rosettamesh.core
   (:use rosettamesh.anar)
   (:use rosettamesh.floatarray)
+  (:use rosettamesh.fluidforms)
   (:use rosettamesh.hemesh)
   (:use rosettamesh.igeo)
   (:use rosettamesh.j3d)

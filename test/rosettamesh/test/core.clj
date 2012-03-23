@@ -1,6 +1,7 @@
 (ns rosettamesh.test.core
   (:use rosettamesh.anar)
   (:use rosettamesh.floatarray)
+  (:use rosettamesh.fluidforms)
   (:use rosettamesh.hemesh)
   (:use rosettamesh.igeo)
   (:use rosettamesh.j3d)
@@ -18,10 +19,10 @@
 (deftest testMeshes
   (let [testMesh (fromHemesh (.create (HEC_Cone. 1 1 20 20)))]
     (let [testResult
-      (fromIndexedTriangleArray 
-        (toIndexedTriangleArray 
-          (fromManyHemesh
-            (toManyHemesh
+      (fromFSolid
+        (toFSolid
+          (fromIndexedTriangleArray 
+            (toIndexedTriangleArray 
               (fromIgeo
                 (toIgeo
                   (fromProcessing
