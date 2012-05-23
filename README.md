@@ -8,7 +8,7 @@ A collection of triangle mesh conversions for Processing, Clojure, and Java.
 - [FluidFormsLibs] (http://fluidforms.eu/processing/fluid-forms-libs/)
 - [He_Mesh] (http://hemesh.wblut.com/)
 - [Java 3d] (http://java3d.java.net/)
-- [ModelBuilder] (http://code.google.com/p/codeandform/)
+- [ModelBuilder] (https://github.com/mariuswatz/modelbuilder)
 - [piGeon] (http://igeo.jp/p/)
 - [Processing PVectors in ArrayLists] (http://processing.org)
 - [toxiclibs] (http://toxiclibs.org/)
