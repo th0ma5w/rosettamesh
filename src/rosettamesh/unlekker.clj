@@ -13,7 +13,9 @@
           uv3  (fn [[x y z]] (UVec3. x y z))]
     (.beginShape ugeom PApplet/TRIANGLES)
     (doall (map (fn [[c b a]]
-      (.addFace ugeom (uv3 a) (uv3 b) (uv3 c)))
+      (.addFace ugeom 
+        (into-array (list 
+          (uv3 a) (uv3 b) (uv3 c)))))
     faceList))
     (.endShape ugeom)
     ugeom) )
